@@ -5,14 +5,6 @@ import {sendemail} from '../features/auth/authSlice'
 
 
 function AllUsers({ allUser }) {
-  const [formData, setFormData] = useState({
-    email: '',
-  })
-
-  const { email } = formData
-
-
-
   const dispatch = useDispatch()
   const { user } = useSelector((state) => state.auth)
 
@@ -23,17 +15,9 @@ function AllUsers({ allUser }) {
 
   const handleClick = () => {
     setButtonText("✔ Successfully matched")
-    // dispatch(sendemail(userData))
-    setFormData((prevState) => ({
-      ...prevState,
-      email: user.email,
-    }))
+    console.log(`user ${user.email} clicked ${buttonText}`);
 
-    const userData = {
-      email,
-    }
-    console.log(`user ${userData} clicked ${buttonText}`);
-    dispatch(sendemail(userData))
+    dispatch(sendemail())
 
   }
 

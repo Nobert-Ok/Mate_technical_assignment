@@ -27,14 +27,15 @@ const login = async (userData) => {
 }
 
 
-// Send email
-const sendemail = async (userData) => {
-  const response = await axios.post(API_URL + 'sendemail', userData)
-
-  if (response.data) {
-    localStorage.setItem('user', JSON.stringify(response.data))
+// Send matching email
+const sendemail = async (token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
   }
-  console.log(response.data)
+
+  const response = await axios.get(API_URL + 'sendmatchemail', config)
 
   return response.data
 }

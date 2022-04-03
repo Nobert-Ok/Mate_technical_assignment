@@ -28,18 +28,18 @@ function Userprofiles() {
       console.log(message)
     }
 
-    if (!user) {
-      navigate('/login')
-    }
+    // if (!user) {
+    //   navigate('/login')
+    // }
 
-    dispatch(getallinterests())
-    dispatch(getUsers())
+    // dispatch(getallinterests())
+    // dispatch(getUsers())
 
 
 
-    return () => {
-      dispatch(reset())
-    }
+    // return () => {
+    //   dispatch(reset())
+    // }
   }, [user, navigate, isError, message, dispatch])
 
 
@@ -65,8 +65,8 @@ function Userprofiles() {
   return (
     <>
       <section className='heading'>
-        <h1>Welcome {user && user.name}</h1>
-        <h1>{user && user.email}</h1>
+        {/* <h1>Welcome {user && user.name}</h1> */}
+        {/* <h1>{user && user.email}</h1> */}
         <p>View other interests and preferences</p>
       </section>
 

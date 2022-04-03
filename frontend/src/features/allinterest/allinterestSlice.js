@@ -13,7 +13,6 @@ const initialState = {
 // Get all user
 export const getallinterests = createAsyncThunk('allinterests/getallinterests', async (_, thunkAPI) => {
     try {
-        console.log()
       return await allInterestService.getallinterests()
     } catch (error) {
       const message =

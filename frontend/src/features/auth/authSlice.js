@@ -43,6 +43,8 @@ export const login = createAsyncThunk('auth/login', async (user, thunkAPI) => {
   }
 })
 
+
+
 export const logout = createAsyncThunk('auth/logout', async () => {
   await authService.logout()
 })
@@ -50,9 +52,11 @@ export const logout = createAsyncThunk('auth/logout', async () => {
 
 
 // Sendemail
-export const sendemail = createAsyncThunk('auth/sendemail', async (user, thunkAPI) => {
+export const sendemail = createAsyncThunk('auth/sendemail', async (_, thunkAPI) => {
   try {
-    return await authService.sendemail(user.email)
+    // const token = localStorage.getItem('token')
+    const token = thunkAPI.getState().auth.user.token
+    return await authService.sendemail(token)
   } catch (error) {
     const message =
       (error.response && error.response.data && error.response.data.message) ||

@@ -32,7 +32,7 @@ function Register() {
 
     if (isSuccess || user) {
       toast.success('Successfully registered!')
-      navigate('/')
+      navigate('/login')
     }
 
     dispatch(reset())

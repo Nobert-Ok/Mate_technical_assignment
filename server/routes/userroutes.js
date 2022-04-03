@@ -5,15 +5,15 @@ const {
   loginUser,
   getMe,
   getUsers,
-  sendEmail
+  sendMatchEmail,
 } = require('../controller/usercontroller')
-const { protect } = require('../middleware/authMiddleware')
+const { protect,cookieJwt } = require('../middleware/authMiddleware')
 
 router.post('/', registerUser)
 router.post('/login', loginUser)
 router.get('/me', protect, getMe)
 router.get('/all', getUsers)
-router.post('/sendemail', sendEmail)
+router.get('/sendmatchemail',protect, sendMatchEmail)
 
 
 module.exports = router
