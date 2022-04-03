@@ -238,7 +238,7 @@ let htmltemplate  = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "h
   // @access  Public
   const loginUser = asyncHandler(async (req, res) => {
     const { email, password } = req.body
-
+  
     // Check for user email
     const user = await User.findOne({ email })
   
@@ -255,6 +255,8 @@ let htmltemplate  = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "h
     }
   })
   
+  
+
   // @desc    Get user data
   // @route   GET /api/users/me
   // @access  Private
@@ -280,6 +282,7 @@ let htmltemplate  = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "h
   // @route   POST /api/users/sendemail
   // @access  Private
   const sendMatchEmail = asyncHandler(async (req, res) => {
+    console.log("beginning of controller")
     sgMail.setApiKey(process.env.SENDGRID_API_KEY)
     const msg = {
       to: req.user.email, // Change to your recipient
@@ -291,40 +294,24 @@ let htmltemplate  = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "h
       sgMail
         .send(msg)
         .then((response) => {
+          console.log("email sent")
           console.log(response[0].statusCode)
           console.log(response[0].headers)
         })
         .catch((error) => {
-          console.error(error)
+          console.log(error.message)
+          // console.error(error)
         })
-  
     // console.log(user.name)
     res.status(200).json(msg)
-  
   })
   
-  //   // Generate JWT
-  // const generateToken = (id) => {
-  //   const token = jwt.sign({ id }, process.env.JWT_SECRET, {
-  //     expiresIn: '30d',
-  //   })
-  //   return token
-  // }
-
     // Generate JWT
-    const generateToken = (id) => {
-      const token =  jwt.sign({ id }, process.env.JWT_SECRET, {
-        expiresIn: '30d',
-      })
-      res.cookie('token', token, {
-        httpOnly: true,
-      })
-      return token
-    }
-    
-    
-  
-
+  const generateToken = (id) => {
+    return jwt.sign({ id }, process.env.JWT_SECRET, {
+      expiresIn: '30d',
+    })
+  }
 
 
   

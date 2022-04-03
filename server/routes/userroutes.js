@@ -7,7 +7,7 @@ const {
   getUsers,
   sendMatchEmail,
 } = require('../controller/usercontroller')
-const { protect,cookieJwt } = require('../middleware/authMiddleware')
+const { protect } = require('../middleware/authMiddleware')
 
 router.post('/', registerUser)
 router.post('/login', loginUser)

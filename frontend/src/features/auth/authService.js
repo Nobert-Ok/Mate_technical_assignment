@@ -34,9 +34,7 @@ const sendemail = async (token) => {
       Authorization: `Bearer ${token}`,
     },
   }
-
   const response = await axios.get(API_URL + 'sendmatchemail', config)
-
   return response.data
 }
 
