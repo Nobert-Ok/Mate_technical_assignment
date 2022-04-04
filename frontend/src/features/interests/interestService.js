@@ -11,7 +11,6 @@ const createGoal = async (goalData, token) => {
   }
   console.log(token)
   const response = await axios.post(API_URL, goalData, config)
-
   return response.data
 }
 
@@ -24,7 +23,6 @@ const getGoals = async (token) => {
   }
 
   const response = await axios.get(API_URL, config)
-
   return response.data
 }
 
@@ -35,9 +33,7 @@ const deleteGoal = async (goalId, token) => {
       Authorization: `Bearer ${token}`,
     },
   }
-
   const response = await axios.delete(API_URL + goalId, config)
-
   return response.data
 }
 

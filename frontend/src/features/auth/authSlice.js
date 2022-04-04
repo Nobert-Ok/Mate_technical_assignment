@@ -54,8 +54,7 @@ export const logout = createAsyncThunk('auth/logout', async () => {
 // Sendemail
 export const sendemail = createAsyncThunk('auth/sendemail', async (_, thunkAPI) => {
   try {
-    // const token = localStorage.getItem('token')
-    const token = thunkAPI.getState().auth.user.token
+    const token = localStorage.getItem('token')
     return await authService.sendemail(token)
   } catch (error) {
     const message =

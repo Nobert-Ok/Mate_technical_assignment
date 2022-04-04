@@ -2,6 +2,9 @@ import axios from 'axios'
 
 const API_URL = '/api/users/'
 
+const user = JSON.parse(localStorage.getItem('user'))
+
+
 // Register user
 const register = async (userData) => {
   const response = await axios.post(API_URL, userData)
@@ -21,6 +24,7 @@ const login = async (userData) => {
 
   if (response.data) {
     localStorage.setItem('user', JSON.stringify(response.data))
+    localStorage.setItem('token', response.data.token)
   }
 
   return response.data
@@ -34,7 +38,9 @@ const sendemail = async (token) => {
       Authorization: `Bearer ${token}`,
     },
   }
+
   const response = await axios.get(API_URL + 'sendmatchemail', config)
+
   return response.data
 }
 
@@ -42,6 +48,7 @@ const sendemail = async (token) => {
 // Logout user
 const logout = () => {
   localStorage.removeItem('user')
+  localStorage.removeItem('token')
 }
 
 const authService = {
