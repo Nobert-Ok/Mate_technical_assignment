@@ -41,7 +41,7 @@ function Dashboard() {
         <h1>Welcome {user && user.name}</h1>
         <InterestForm />
 
-        <p>Your Interests and Preference Dashboard</p>
+        <p>Your Interests and Preferences</p>
       </section>
       <section className='content'>
         {interests.length > 0 ? (
@@ -51,7 +51,7 @@ function Dashboard() {
             ))}
           </div>
         ) : (
-          <h3>You have not set any goals</h3>
+          <h3>You have not set any interests or preferences, enter your interests and preferences</h3>
         )}
       </section>
     </>

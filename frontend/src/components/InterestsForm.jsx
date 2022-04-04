@@ -34,7 +34,7 @@ function InterestForm() {
     <section className='form'>
       <form onSubmit={onSubmit}>
         <div className='form-group'>
-          <label htmlFor='text'>Enter your interests</label>
+          <label htmlFor='text'>Interests</label>
           <input
               type='text'
               className='form-control'
@@ -45,7 +45,7 @@ function InterestForm() {
               onChange={onChange}
               required
           />
-          <label htmlFor='text'>Enter your preferences</label>
+          <label htmlFor='text'>Preferences</label>
           <input
               type='text'
               className='form-control'
@@ -59,7 +59,7 @@ function InterestForm() {
         </div>
         <div className='form-group'>
           <button className='btn btn-block' type='submit'>
-            Start Matching
+            Submit
           </button>
         </div>
       </form>

@@ -9,7 +9,7 @@ function AllUsers({ allUser }) {
   const { user } = useSelector((state) => state.auth)
 
 
-  const [buttonText, setButtonText] = useState("match"); 
+  const [buttonText, setButtonText] = useState("Click to match"); 
   const changeText = (text) => setButtonText(text);
 
 
@@ -23,7 +23,7 @@ function AllUsers({ allUser }) {
 
 return (
   <div className='goal'>
-    <div>{new Date(allUser.createdAt).toLocaleString('en-US')}</div>
+    <br></br>
     <h2>{allUser.name}</h2>
     <button onClick={() => handleClick()} className='close'>
       {buttonText}
