@@ -29,7 +29,7 @@ function Dashboard() {
     // return () => {
     //   dispatch(reset())
     // }
-  }, [user, navigate, isError, message, dispatch])
+  }, [navigate, isError, message, dispatch])
 
   if (isLoading) {
     return <Spinner />
@@ -38,7 +38,7 @@ function Dashboard() {
   return (
     <>
       <section className='heading'>
-        <h1>Welcome {user && user.name}</h1>
+        <h1>Welcome to Mate</h1>
         <InterestForm />
 
         <p>Your Interests and Preferences</p>
