@@ -41,7 +41,7 @@ function InterestForm() {
               id='interests'
               name='interests'
               value={interests}
-              placeholder='Enter your email'
+              placeholder='Enter your interest'
               onChange={onChange}
               required
           />
@@ -52,7 +52,7 @@ function InterestForm() {
               id='preferences'
               name='preferences'
               value={preferences}
-              placeholder='Enter your email'
+              placeholder='Enter your preference e.g friends,male, etc'
               onChange={onChange}
               required
           />
